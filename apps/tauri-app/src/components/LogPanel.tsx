@@ -25,11 +25,11 @@ const useLogListener = () => {
   console.log(logs);
   useEffect(() => {
     const setupLogListener = async () => {
-      const unsubscribe = await listen<Log>(LOG_EVENT_NAME, (event) => {
+      return  await listen<Log>(LOG_EVENT_NAME, (event) => {
         setLogs((prevLogs) => [...prevLogs, event.payload]);
       });
 
-      return unsubscribe;
+
     };
 
     const cleanup = setupLogListener();

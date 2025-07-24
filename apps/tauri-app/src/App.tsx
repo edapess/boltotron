@@ -1,6 +1,6 @@
 import {LogPanel} from "./components/LogPanel.tsx";
 
-function App() {
+function App():JSX.Element {
 
   return (
     <div style={{ padding: 20 }}>
