@@ -1,0 +1,19 @@
+{
+  "name": "tauri-app",
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cargo tauri dev",
+        "cwd": "apps/tauri-app"
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cargo tauri build",
+        "cwd": "apps/tauri-app"
+      }
+    }
+  }
+}

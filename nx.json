@@ -21,5 +21,8 @@
         }
       }
     }
-  ]
+  ],
+  "projects": {
+    "tauri-app": "apps/tauri-app"
+  }
 }
