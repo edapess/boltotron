@@ -34,7 +34,7 @@ jobs:
       - run: npm ci --legacy-peer-deps
 
       - name: Install deps
-        run: yarn install
+        run: cd apps/tauri-app && yarn install && cd ../../
 
       - name: Install Tauri CLI
         run: cargo install tauri-cli
