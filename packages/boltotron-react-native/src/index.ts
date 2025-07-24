@@ -1,1 +1,2 @@
-export * from './lib/boltotron-react-native.js';
+export * from './lib/loggerEnhancer';
+export * from './lib/setupLogger';

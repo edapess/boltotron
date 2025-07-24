@@ -1,9 +1,9 @@
 {
   "name": "@boltotron/boltotron-react-native",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": false,
   "type": "module",
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -12,10 +12,18 @@
       "development": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
       "default": "./dist/index.js"
     }
   },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && tsc --project tsconfig.lib.json",
+    "clean": "rm -rf dist"
+  },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "redux": "^5.0.1"
   }
 }

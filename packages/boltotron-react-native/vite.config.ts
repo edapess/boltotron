@@ -1,13 +1,30 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type LibraryFormats } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig(() => ({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/packages/boltotron-react-native',
   plugins: [],
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
+  build: {
+    lib: {
+      entry: resolve(__dirname, 'src/index.ts'),
+      name: 'BoltotronReactNative',
+      fileName: 'index',
+      formats: ['es', 'cjs'] as LibraryFormats[],
+    },
+    rollupOptions: {
+      external: ['react', 'react-native'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-native': 'ReactNative',
+        },
+      },
+    },
+    outDir: 'dist',
+    sourcemap: true,
+    target: 'es2015',
+  },
   test: {
     watch: false,
     globals: true,

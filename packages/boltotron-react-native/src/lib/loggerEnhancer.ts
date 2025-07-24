@@ -4,36 +4,35 @@ import type {
   Store,
   StoreCreator,
   StoreEnhancer,
-} from "redux";
-import { WebSocket } from 'vite';
+} from 'redux';
 
 let socket: WebSocket | null = null;
 
-function sendLog(log: any) {
+export const sendLog = (log: any) => {
   if (socket?.readyState === WebSocket.OPEN) {
     socket.send(JSON.stringify(log));
   }
-}
+};
 
-export function createLoggerEnhancer(wsUrl: string): StoreEnhancer {
+export const createLoggerEnhancer = (wsUrl: string): StoreEnhancer => {
   socket = new WebSocket(wsUrl);
 
-  socket.onopen = () => console.log("[LogWS] connected");
-  socket.onclose = () => console.log("[LogWS] disconnected");
-  socket.onerror = (e) => console.log("[LogWS] error", e);
+  socket.onopen = () => console.log('[LogWS] connected');
+  socket.onclose = () => console.log('[LogWS] disconnected');
+  socket.onerror = (e) => console.log('[LogWS] error', e);
 
   return (next: StoreCreator): StoreCreator => {
     return <S, A extends Action>(
       reducer: Reducer<S, A>,
-      preloadedState?: unknown,
+      preloadedState?: unknown
     ): Store<S, A> => {
-      // @ts-ignore
+      //@ts-expect-error
       const store = next(reducer, preloadedState);
 
       const originalDispatch = store.dispatch;
       store.dispatch = (action) => {
         sendLog({
-          source: "redux",
+          source: 'redux',
           actionType: action.type,
           payload: (action as any).payload,
           timestamp: Date.now(),
@@ -44,4 +43,4 @@ export function createLoggerEnhancer(wsUrl: string): StoreEnhancer {
       return store;
     };
   };
-}
+};
