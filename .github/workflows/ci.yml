@@ -11,46 +11,56 @@ permissions:
   contents: read
 
 jobs:
-  main:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
-          filter: tree:0
           fetch-depth: 0
 
-      # This enables task distribution via Nx Cloud
-      # Run this command as early as possible, before dependencies are installed
-      # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#npx-nxcloud-startcirun
-      # Uncomment this line to enable task distribution
-      # - run: npx nx start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="build"
-
-      # Cache node_modules
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
 
-      - run: npm ci --legacy-peer-deps
+      - uses: actions/setup-rust@v1
+        with:
+          profile: minimal
+          override: true
 
-      - name: Install deps
-        run: cd apps/tauri-app && yarn install && cd ../../
-
-      - name: Install Tauri CLI
+      - name: Install global Rust tools
         run: cargo install tauri-cli
 
-      - name: Install system dependencies
-        run: | 
-          sudo apt-get update 
-          sudo apt-get install -y libglib2.0-dev pkg-config build-essential
-          
-      - name: Install GTK system dependencies
+      - name: Install system dependencies (GTK/WebKit/GLib/etc)
         run: |
-              sudo apt-get update
-              sudo apt-get install -y libgtk-3-dev pkg-config build-essential
-      # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
-      # - run: npx nx-cloud record -- echo Hello World
-      - run: npx nx run-many -t lint test build
-      # Nx Cloud recommends fixes for failures to help you get CI green faster. Learn more: https://nx.dev/ci/features/self-healing-ci
-      - run: npx nx fix-ci
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.0-dev \
+            build-essential \
+            curl \
+            wget \
+            file \
+            libssl-dev \
+            libgtk-3-dev \
+            libayatana-appindicator3-dev \
+            librsvg2-dev \
+            pkg-config \
+            libglib2.0-dev \
+            libgdk-pixbuf2.0-dev
+
+      - name: Install JS/TS dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Install Tauri app dependencies
+        run: |
+          cd apps/tauri-app
+          yarn install
+          cd ../../
+
+      - name: Build all Nx targets (lint, test, build)
+        run: npx nx run-many -t lint test build
+
+      - name: Fix CI if needed
         if: always()
+        run: npx nx fix-ci
