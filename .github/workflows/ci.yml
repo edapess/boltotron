@@ -24,12 +24,7 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - uses: actions/setup-rust@v1
-        with:
-          profile: minimal
-          override: true
-
-      - name: Install global Rust tools
+      - name: Install Tauri CLI
         run: cargo install tauri-cli
 
       - name: Install system dependencies (GTK/WebKit/GLib/etc)
