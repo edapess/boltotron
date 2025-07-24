@@ -43,6 +43,11 @@ jobs:
         run: | 
           sudo apt-get update 
           sudo apt-get install -y libglib2.0-dev pkg-config build-essential
+          
+      - name: Install GTK system dependencies
+        run: |
+              sudo apt-get update
+              sudo apt-get install -y libgtk-3-dev pkg-config build-essential
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: npx nx-cloud record -- echo Hello World
       - run: npx nx run-many -t lint test build
