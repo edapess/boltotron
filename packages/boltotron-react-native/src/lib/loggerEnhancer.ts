@@ -26,7 +26,7 @@ export const createLoggerEnhancer = (wsUrl: string): StoreEnhancer => {
       reducer: Reducer<S, A>,
       preloadedState?: unknown
     ): Store<S, A> => {
-      //@ts-expect-error
+      //@ts-expect-error preloadedState type, need to fix
       const store = next(reducer, preloadedState);
 
       const originalDispatch = store.dispatch;
