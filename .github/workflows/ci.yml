@@ -38,6 +38,11 @@ jobs:
 
       - name: Install Tauri CLI
         run: cargo install tauri-cli
+
+      - name: Install system dependencies
+        run: | 
+          sudo apt-get update 
+          sudo apt-get install -y libglib2.0-dev pkg-config build-essential
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: npx nx-cloud record -- echo Hello World
       - run: npx nx run-many -t lint test build
