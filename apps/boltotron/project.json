@@ -4,14 +4,21 @@
     "dev": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "cargo tauri dev",
+        "command": "yarn run tauri dev",
+        "cwd": "apps/boltotron"
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn run tauri dev",
         "cwd": "apps/boltotron"
       }
     },
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "cargo tauri build",
+        "command": "yarn run tauri build",
         "cwd": "apps/boltotron"
       }
     }
