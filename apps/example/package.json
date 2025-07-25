@@ -4,7 +4,6 @@
   "main": "expo-router/entry",
   "private": true,
   "dependencies": {
-    "@boltotron/boltotron-react-native": "^0.1.0",
     "@expo/metro-config": "*",
     "@nx/devkit": "*",
     "@nx/eslint": "*",

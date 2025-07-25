@@ -1146,13 +1146,6 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@boltotron/boltotron-react-native@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@boltotron/boltotron-react-native/-/boltotron-react-native-0.1.0.tgz#059f3ab29a9f714c1463eb3d2d493577d3f47075"
-  integrity sha512-hJ3a2NXvhCPSABIpQiQ8y+ekiEGs1+Is8h9rhm10mhgI0zlC6qw9weIqzd9u0naZwuly2M1L5j6v5tsiH3l5Og==
-  dependencies:
-    redux "^5.0.1"
-
 "@bufbuild/protobuf@^2.5.0":
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/@bufbuild/protobuf/-/protobuf-2.6.2.tgz#2a345fce198f8858c7bc807ed7f0813d163344eb"
