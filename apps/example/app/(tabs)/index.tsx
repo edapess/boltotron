@@ -3,10 +3,10 @@ import { TodosList } from '../features/Todos';
 import { useHomeScreenStyles } from './settings.styles';
 
 export default function HomeScreen() {
-  const syles = useHomeScreenStyles();
+  const styles = useHomeScreenStyles();
 
   return (
-    <View style={syles.container}>
+    <View style={styles.container}>
       <TodosList />
     </View>
   );
