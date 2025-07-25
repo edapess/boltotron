@@ -47,6 +47,22 @@
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
       }
+    },
+     {
+      "plugin": "@nx/expo/plugin",
+      "options": {
+        "startTargetName": "start",
+        "buildTargetName": "build",
+        "prebuildTargetName": "prebuild",
+        "serveTargetName": "serve",
+        "installTargetName": "install",
+        "exportTargetName": "export",
+        "submitTargetName": "submit",
+        "runIosTargetName": "run-ios",
+        "runAndroidTargetName": "run-android",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
     }
   ],
   "projects": {
@@ -55,6 +71,19 @@
   "targetDefaults": {
     "test": {
       "dependsOn": ["^build"]
+    }
+    },
+      "definitions": {
+    "cliOptions": {
+      "type": "object",
+      "description": "Default generator collection.",
+      "properties": {
+        "packageManager": {
+          "type": "string",
+          "description": "The default package manager to use.",
+          "enum": ["yarn"]
+        }
+      }
     }
   }
 }

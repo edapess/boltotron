@@ -17,6 +17,10 @@
     "strict": true,
     "target": "es2015",
     "customConditions": ["development"],
-    "allowImportingTsExtensions": true
-  }
+    "allowImportingTsExtensions": true,
+    "paths": {
+
+    }
+  },
+  
 }
