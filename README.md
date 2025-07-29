@@ -4,13 +4,20 @@
 
 ## Development Commands
 
-### 1. Run Boltotron Tauri Desktop App
+### 1. Install dependencies
+
+**Note:** This is syncing only example app, for main boltotron, go to dir and instal packages there
+
+```bash
+yarn project:install
+```
+### 2. Run Boltotron Tauri Desktop App
 
 ```bash
 yarn start:boltotron
 ```
 
-### 2. Run Example React Native App
+### 3. Run Example React Native App
 
 ```bash
 yarn start:example

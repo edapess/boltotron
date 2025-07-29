@@ -1,0 +1,19 @@
+{
+  "name": "example",
+  "targets": {
+    "serve": {
+        "executor": "nx:run-commands",
+        "options": {
+            "command": "nx start example"
+        }
+    },
+     "sync-deps": {
+      "executor": "@nx/expo:sync-deps",
+      "options": {}
+    },
+    "ensure-symlink": {
+      "executor": "@nx/expo:ensure-symlink",
+      "options": {}
+    }
+  }
+}
