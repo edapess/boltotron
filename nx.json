@@ -66,8 +66,7 @@
     }
   ],
   "projects": {
-    "boltotron": "apps/boltotron",
-    "example": "apps/example"
+    "boltotron": "apps/boltotron"
   },
   "targetDefaults": {
     "test": {
