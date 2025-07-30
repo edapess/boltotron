@@ -1,7 +1,7 @@
 import { configureStore, StoreEnhancer } from '@reduxjs/toolkit';
 import rootReducer from './slices/rootReducer';
 import { baseApi } from './toolkitServices';
-import { createLoggerEnhancer } from '@boltotron/boltotron-react-native';
+import { createLoggerEnhancer } from '@boltotron-react-native';
 
 export type RootState = ReturnType<typeof rootReducer>;
 const loggerEnhancer = createLoggerEnhancer('ws://127.0.0.1:7878');

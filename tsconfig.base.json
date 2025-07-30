@@ -21,8 +21,7 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-        "@boltotron-react-native": ["packages/boltotron-react-native/dist/index.d.ts"],
-        "@boltotron/boltotron-react-native": ["packages/boltotron-react-native/dist/index.d.ts"]
+        "@boltotron-react-native": ["packages/boltotron-react-native/dist/index.ts"],
     }
   },
   
