@@ -46,5 +46,7 @@
     "android": "expo run:android",
     "ios": "expo run:ios"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@boltotron/boltotron-react-native": "workspace:*"
+  }
 }

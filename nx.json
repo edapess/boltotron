@@ -48,7 +48,7 @@
         "watchDepsTargetName": "watch-deps"
       }
     },
-     {
+    {
       "plugin": "@nx/expo/plugin",
       "options": {
         "startTargetName": "start",
@@ -72,8 +72,8 @@
     "test": {
       "dependsOn": ["^build"]
     }
-    },
-      "definitions": {
+  },
+  "definitions": {
     "cliOptions": {
       "type": "object",
       "description": "Default generator collection.",

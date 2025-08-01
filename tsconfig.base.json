@@ -20,9 +20,6 @@
     "allowImportingTsExtensions": true,
     "rootDir": ".",
     "baseUrl": ".",
-    "paths": {
-        "@boltotron-react-native": ["packages/boltotron-react-native/dist/index.ts"],
-    }
   },
   
 }

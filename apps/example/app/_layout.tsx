@@ -13,7 +13,7 @@ import {
   useIsDark,
   ThemeProvider,
 } from '../src/utils/uiUtils/themeUtils';
-import { initRemoteLogger } from '@boltotron-react-native';
+import { initRemoteLogger } from '@boltotron/boltotron-react-native';
 initRemoteLogger('ws://localhost:7878');
 
 function AppContent() {

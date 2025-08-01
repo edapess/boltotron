@@ -1,16 +1,20 @@
 const { withNxMetro } = require('@nx/expo');
 const { getDefaultConfig } = require('@expo/metro-config');
 const { mergeConfig } = require('metro-config');
+const path = require('path');
 
 const defaultConfig = getDefaultConfig(__dirname);
 const { assetExts, sourceExts } = defaultConfig.resolver;
-
+const projectRoot = __dirname
+const workspaceRoot = path.resolve(projectRoot, "../../..")
 /**
  * Metro configuration
  * https://reactnative.dev/docs/metro
  *
  * @type {import('metro-config').MetroConfig}
  */
+
+
 const customConfig = {
   cacheVersion: '@boltotron/example',
   //transformer: {
@@ -19,9 +23,10 @@ const customConfig = {
   resolver: {
     assetExts: assetExts.filter((ext) => ext !== 'svg'),
     sourceExts: [...sourceExts, 'cjs', 'mjs', 'svg'],
-    extraNodeModules: {
-      '@boltotron-react-native': '../../packages/boltotron-react-native',
-    },
+    nodeModulesPaths:[
+      path.resolve(projectRoot, "node_modules"),
+      path.resolve(workspaceRoot, "node_modules"),
+    ]
   },
 };
 
