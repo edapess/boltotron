@@ -7,14 +7,12 @@ import { StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 import store from '../src/store/configureStore';
-
+import '../Boltotron.config';
 import {
   useUiTheme,
   useIsDark,
   ThemeProvider,
 } from '../src/utils/uiUtils/themeUtils';
-import { initRemoteLogger } from '@boltotron-react-native';
-initRemoteLogger('ws://localhost:7878');
 
 function AppContent() {
   const colors = useUiTheme();

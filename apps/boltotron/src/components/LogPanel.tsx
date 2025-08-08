@@ -11,14 +11,18 @@ type Log = {
 
 const LOG_EVENT_NAME = 'log-received';
 
-const LogEntry = ({ log }: { log: Log }) => (
-  <div className="log-entry py-1">
-    {log.source || 'No message'}
-    {log.level && (
-      <span className="ml-2 text-xs text-gray-500">[{log.level}]</span>
-    )}
-  </div>
-);
+const LogEntry = ({ log }: { log: Log }) => {
+  //TODO: delete logs
+  console.log('🚀 -> log->', log);
+  return (
+    <div className="log-entry py-1">
+      {log.source || 'No message'}
+      {log.level && (
+        <span className="ml-2 text-xs text-gray-500">[{log.level}]</span>
+      )}
+    </div>
+  );
+};
 
 const useLogListener = () => {
   const [logs, setLogs] = useState<Log[]>([]);

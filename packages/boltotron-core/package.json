@@ -1,5 +1,5 @@
 {
-  "name": "@boltotron/boltotron-react-native",
+  "name": "@boltotron/boltotron-core",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -16,7 +16,6 @@
     }
   },
   "dependencies": {
-    "tslib": "^2.3.0",
-    "@boltotron/boltotron-core": "*"
+    "tslib": "^2.3.0"
   }
 }
