@@ -4,6 +4,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../packages/boltotron-react-native"
+    },
+    {
       "path": "./tsconfig.app.json"
     }
   ]

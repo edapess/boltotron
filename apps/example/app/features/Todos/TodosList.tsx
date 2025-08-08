@@ -20,7 +20,7 @@ import {
 
 export const todosListTestIds = createTestIDsObject(
   'TodosList',
-  createParentTestIDObjectKeys('flatList', 'listItem'),
+  createParentTestIDObjectKeys('flatList', 'listItem')
 );
 
 export const TodosList = () => {
@@ -31,11 +31,16 @@ export const TodosList = () => {
   const todosOffset = useAppSelector(selectTodosOffset);
   const isReachEndOfList = useAppSelector(selectTodosIsReachEndOfList);
 
+  useEffect(() => {
+    //for debugging purposes
+    console.log('🚀 -> isReachEndOfList->', isReachEndOfList);
+  }, [isReachEndOfList]);
+
   const updateTodo = useCallback(
     (id: number, completed: boolean) => {
       updateTodoStatus({ id, completed });
     },
-    [updateTodoStatus],
+    [updateTodoStatus]
   );
   const renderItem = useCallback(
     ({ item }: { item: TToDo }) => {
@@ -49,7 +54,7 @@ export const TodosList = () => {
         />
       );
     },
-    [updateTodo],
+    [updateTodo]
   );
 
   const fetchTodos = useCallback(() => {
